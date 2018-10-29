@@ -77,20 +77,28 @@
 
 \section {System Architecture}
 \subsection{Graphical User Interface(GUI)}
-JAVAFX
 \begin {itemize}
-\item Texts here.
-
+\item  The software shall make use of component which is JavaFX.
+\item  The program shall have modern appearance for user and some advantages while developing the program for developers.
+\item  JavaFX has larger than Swing about interface components.
+\item  JavaFX supports modern touch devices.
+\item  The program should be able to contain multilabel in main window of the program.
 \end {itemize} 
 
-\subsection{Database Platform}
-SQLite
+\subsection{Storage Data Platform}
 \begin {itemize}
-\item Texts here.
+\item   The software shall use database for collecting, storage and using information.
+\item   SQLite more useful and modern then other database platforms for these tasks.       
+\item   The program does not need to setup any components with SQLite so MySQL was not preferred by developers.
+\item   SQLite should benefit to user while changing and adding a new column in collections which created before.
+\item Search and delete functions make it easy to integrate into the program with SQLite. 
 \end {itemize} 
 
 \subsection{Architecture}
 \begin {itemize}
-\item Texts here.
+\item   The user shall install a program of setup which created by the Collection Software developers.
+\item   The setup shall import necessary libraries and components which needs to run the program.
+\item   The user shall have Windows 10 and Java in the computer. 
+\item   The shall design with JavaFX and SQLite. 
 \end {itemize} 
 \end{document}
