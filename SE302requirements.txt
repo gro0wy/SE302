@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+
+
+\usepackage{natbib}
+\usepackage{graphicx}
+
+\begin{document}
+
+\maketitle
+
+\section{User Requirements}
+\subsection{Functional System Requirements}
+\begin{itemize}
+\item The user shall be able to create a new collection to store items (music albums, games, books etc. ).
+\item The user shall be able to assign the features of the collection. In example, for books (title,author,number of pages etc. ).
+\item After all attributes assigned, the user shall be able to assign new features to collections.
+\item The user shall be able to add or delete items on collections.
+\item The user shall be able to update items and collections.
+\item The user shall be able to list all items.
+\item After creating collections, the user shall be able to list selected collection items.
+\item The user should be able to sort selected collection by their features.
+\item The user shall be able to search items by their features on selected collections.
+\item The user shall be able to save their collections. Later in the future, the user shall be able to open saved projects.
+\end{itemize}
+
+
+\subsection{Non-functional System Requirements}
+\begin{itemize}
+\item To operate properly, Software requires fundamental computer skills.
+\item At the same time, only one user may use the software.
+\item Entered data by user have to be valid.
+\item To use software, user must have basic English knowledge.
+\end{itemize}
+
+
+
+\end{document}
