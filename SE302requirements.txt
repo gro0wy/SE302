@@ -1,4 +1,4 @@
-\documentclass{article}
+﻿\documentclass{article}
 \usepackage[utf8]{inputenc}
 
 \date{}
@@ -35,6 +35,9 @@
 \item The user shall be able to assign the features of the collection. In example, for books (title,author,number of pages etc. ).
 \item After all attributes assigned, the user shall be able to assign new features to collections.
 \item The user shall be able to add or delete items on collections.
+\item The user shall not be able to create a collection without name.
+\item The user shall not be able to create a collection without fill the required attributes. 
+\item The user shall be create an item only if the values of the attributes are valid.
 \item The user shall be able to update items and collections.
 \item The user shall be able to list all items.
 \item After creating collections, the user shall be able to list selected collection items.
@@ -43,14 +46,14 @@
 \item The user shall be able to save their collections. Later in the future, the user shall be able to open saved projects.
 \end{itemize}
 
-
-\subsection{Non-functional User Requirements}
+\subsection{Non-Functional User Requirements}
 \begin{itemize}
 \item To operate properly, Software requires fundamental computer skills.
 \item At the same time, only one user may use the software.
 \item Entered data by user have to be valid.
 \item To use software, user must have basic English knowledge.
 \end{itemize}
+
 
 \section{System Requirements}
 \subsection{Functional System Requirements}
@@ -64,19 +67,27 @@
 \item In the edit button on the top, the user shall be able to delete or update the items of the selected collection.
 \item In the main page of the program, the user shall be able to list all the items of the collections or by clicking the collection name, the user shall be able list only the selected list.
 \item The user shall be able to search an item through all items or the items shall be able to searched only in selected collection.
-\item The user should be able to import data from excel to SQLite.
+\item The user should be able to import data from excel to SQLite. 
 \end{itemize}
 
 \subsection{Non-Functional System Requirements}
 \begin {itemize}
 \item Software should support Windows 10.
-\item The user shall not be able to create a collection without name.
-\item The user shall not be able to create a collection without fill the required attributes. 
-\item The user shall be create an item only the values of the attributes
 \end {itemize}
 
+\section {System Architecture}
+\subsection{Graphical User Interface(GUI)}
+\begin {itemize}
+\item Texts here.
+\end {itemize} 
 
+\subsection{Database Platform}
+\begin {itemize}
+\item Texts here.
+\end {itemize} 
 
-
-
+\subsection{Architecture}
+\begin {itemize}
+\item Texts here.
+\end {itemize} 
 \end{document}
