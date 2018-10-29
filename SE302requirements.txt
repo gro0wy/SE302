@@ -17,7 +17,7 @@
 	{\Large\itshape Sercan Kavdır\par}
 	{\Large\itshape Mert Kesimli\par}
 	{\Large\itshape Mert Filiz\par}
-	{\Large\itshape Mustafa Sarıgul\par}
+	{\Large\itshape Mustafa Sarigul\par}
 	{\Large\itshape Yigitcan Yilmaz\par}
 	{\Large\itshape Berk Gursoy\par}
 	\vfill
@@ -77,11 +77,14 @@
 
 \section {System Architecture}
 \subsection{Graphical User Interface(GUI)}
+JAVAFX
 \begin {itemize}
 \item Texts here.
+
 \end {itemize} 
 
 \subsection{Database Platform}
+SQLite
 \begin {itemize}
 \item Texts here.
 \end {itemize} 
