@@ -1,0 +1,36 @@
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<DialogPane fx:controller="sample.CollectionDialog" xmlns:fx="http://javafx.com/fmxl">
+    <headerText>
+        Fill in the information for the new collection
+    </headerText>
+    <content>
+        <GridPane hgap="10" vgap="10">
+            <Label text="Collection Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="collectionField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Field Name:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="collectionAttField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="Type of field" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+
+            <ComboBox GridPane.rowIndex="2" GridPane.columnIndex="1">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="String"/>
+                        <String fx:value="Integer"/>
+                        <String fx:value="Text"/>
+                    </FXCollections>
+                </items>
+                <value>
+                    <String fx:value="String"/>
+                </value>
+            </ComboBox>
+        </GridPane>
+    </content>
+</DialogPane>
