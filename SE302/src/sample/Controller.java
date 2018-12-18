@@ -29,7 +29,7 @@ public class Controller {
             stage.setTitle("Add Colection");
             stage.setScene(new Scene(root1));
             stage.show();
-         
+            Dialog<ButtonType> dialog = new Dialog<>();
 
         } catch(Exception e) {
             System.err.println(e.getMessage());
@@ -38,16 +38,52 @@ public class Controller {
 
     public void showEditCollectionDialog() {
 
-        System.out.println("Collection editlemeye ait Dialog Pane ayarlanacak");
+        try {
+
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("collectionDialog.fxml"));
+            Parent root2 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Edit Collection");
+            stage.setScene(new Scene(root2));
+            stage.show();
+            Dialog<ButtonType> dialog = new Dialog<>();
+
+        } catch(Exception e) {
+            System.err.println(e.getMessage());
+        }
     }
 
     public void showAddItemDialog() {
-        System.out.println("Belirtilen collectiona ait item ekleme işleme gerçekleştirilecek.");
+        try {
+
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("itemDialog.fxml"));
+            Parent root3 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Add Item");
+            stage.setScene(new Scene(root3));
+            stage.show();
+            Dialog<ButtonType> dialog = new Dialog<>();
+
+        } catch(Exception e) {
+            System.err.println(e.getMessage());
+        }
 
 
     }
     public void showEditItemDialog(){
-        System.out.println("Belirtilen collectiona ait item editleme işleme gerçekleştirilecek.");
+        try {
+
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("itemDialog.fxml"));
+            Parent root4 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Edit Item");
+            stage.setScene(new Scene(root4));
+            stage.show();
+            Dialog<ButtonType> dialog = new Dialog<>();
+
+        } catch(Exception e) {
+            System.err.println(e.getMessage());
+        }
 
     }
 

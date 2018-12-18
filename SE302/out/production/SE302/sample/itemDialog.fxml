@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+
+<DialogPane fx:controller="sample.CollectionDialog" xmlns:fx="http://javafx.com/fmxl">
+    <headerText>
+        Fill in the information for the new item
+    </headerText>
+    <content>
+        <GridPane hgap="10" vgap="10">
+            <Label text="Item Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="itemField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <ComboBox GridPane.rowIndex="2" GridPane.columnIndex="1">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="String"/>
+                        <String fx:value="Integer"/>
+                        <String fx:value="Text"/>
+                    </FXCollections>
+                </items>
+                <value>
+                    <String fx:value="String"/>
+                </value>
+            </ComboBox>
+        </GridPane>
+    </content>
+</DialogPane>
