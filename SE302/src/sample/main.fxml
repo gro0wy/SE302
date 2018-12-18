@@ -13,10 +13,10 @@
         <MenuBar>
             <Menu text="Collection">
                 <items>
-                    <MenuItem text="Add Collection"/>
+                    <MenuItem text="Add Collection" onAction="#showAddCollectionDialog"/>
                 </items>
                 <items>
-                    <MenuItem text="Edit Collection"/>
+                    <MenuItem text="Edit Collection" onAction="#showEditCollectionDialog"/>
                 </items>
                 <items>
                     <MenuItem text="Delete Collection"/>
@@ -25,10 +25,10 @@
             <menus>
                 <Menu text="Item">
                     <items>
-                        <MenuItem text="Add Item"/>
+                        <MenuItem text="Add Item" onAction="#showAddItemDialog"/>
                     </items>
                     <items>
-                        <MenuItem text="Edit Item"/>
+                        <MenuItem text="Edit Item" onAction="#showEditItemDialog"/>
                     </items>
                     <items>
                         <MenuItem text="Delete Item"/>
