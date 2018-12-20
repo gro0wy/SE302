@@ -18,20 +18,24 @@ public class CollectionDialog {
     @FXML
     private ComboBox comboBox;
     @FXML
-    private ListView<TextField> printFields;
+    private ListView<String> myListView;
     @FXML
     private VBox vBox;
 
     public void addItemsToListView() {
+/*
         vBox = new VBox();
-        ArrayList<TextField> elements = new ArrayList<>();
+*/
+        myListView.getItems().add(collectionAttField.getText());
+/*        ArrayList<TextField> elements = new ArrayList<>();
         elements.add(collectionAttField);
         elements.add(collectionAttField);
 
         for (int i = 0; i < elements.size(); i++) {
             printFields.getItems().add(elements.get(i));
-            vBox.getChildren().add(printFields);
-        }
+            vBox.getChildren().addAll(printFields);
+
+        }*/
 
 
     }

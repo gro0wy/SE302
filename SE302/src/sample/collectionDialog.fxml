@@ -39,7 +39,7 @@
                     <String fx:value="String" />
                 </value>
             </ComboBox>
-         <ListView prefHeight="282.0" prefWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+         <ListView fx:id="myListView" prefHeight="282.0" prefWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
            <buttons>
              <Button mnemonicParsing="false" onMouseClicked="#addItemsToListView" prefHeight="25.0" prefWidth="86.0" text="Add" />

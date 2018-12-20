@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.awt.*;
+
 public class Main extends Application {
 
     @Override
@@ -14,6 +16,8 @@ public class Main extends Application {
         primaryStage.setTitle("Collection App");
         primaryStage.setScene(new Scene(root, 1024, 768));
         primaryStage.show();
+        TextField textField=new TextField();
+        textField.setText("search");
 
     }
 
