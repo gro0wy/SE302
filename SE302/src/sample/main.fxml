@@ -1,37 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.control.ListView?>
-<BorderPane fx:controller="sample.Controller"
-            xmlns:fx="http://javafx.com/fxml">
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane fx:id="mainPanel" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.121" fx:controller="sample.Controller">
     <top>
         <MenuBar>
             <Menu text="Collection">
                 <items>
-                    <MenuItem text="Add Collection" onAction="#showAddCollectionDialog"/>
+                    <MenuItem onAction="#showAddCollectionDialog" text="Add Collection" />
                 </items>
                 <items>
-                    <MenuItem text="Edit Collection" onAction="#showEditCollectionDialog"/>
+                    <MenuItem onAction="#showEditCollectionDialog" text="Edit Collection" />
                 </items>
                 <items>
-                    <MenuItem text="Delete Collection"/>
+                    <MenuItem text="Delete Collection" />
                 </items>
             </Menu>
             <menus>
                 <Menu text="Item">
                     <items>
-                        <MenuItem text="Add Item" onAction="#showAddItemDialog"/>
+                        <MenuItem onAction="#showAddItemDialog" text="Add Item" />
                     </items>
                     <items>
-                        <MenuItem text="Edit Item" onAction="#showEditItemDialog"/>
+                        <MenuItem onAction="#showEditItemDialog" text="Edit Item" />
                     </items>
                     <items>
-                        <MenuItem text="Delete Item"/>
+                        <MenuItem text="Delete Item" />
                     </items>
                 </Menu>
             </menus>
@@ -42,29 +43,29 @@
             <columns>
                 <TableColumn text="First Field">
                     <cellValueFactory>
-                        <PropertyValueFactory property="firstField"/>
+                        <PropertyValueFactory property="firstField" />
                     </cellValueFactory>
                 </TableColumn>
                 <TableColumn text="Second Field">
                     <cellValueFactory>
-                        <PropertyValueFactory property="secondField"/>
+                        <PropertyValueFactory property="secondField" />
                     </cellValueFactory>
                 </TableColumn>
                 <TableColumn text="Third Field">
                     <cellValueFactory>
-                        <PropertyValueFactory property="thirdField"/>
+                        <PropertyValueFactory property="thirdField" />
                     </cellValueFactory>
                 </TableColumn>
                 <TableColumn text="Fourth Field">
                     <cellValueFactory>
-                        <PropertyValueFactory property="fourthField"/>
+                        <PropertyValueFactory property="fourthField" />
                     </cellValueFactory>
                 </TableColumn>
             </columns>
         </TableView>
     </center>
     <left>
-    <ListView>
+    <ListView fx:id="collectionListView">
 
     </ListView>
     </left>
