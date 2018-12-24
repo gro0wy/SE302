@@ -73,7 +73,6 @@ public class CollectionDialog {
          */
 
     }
-
     //Fields deleted from list view in the dialog pane
     @FXML
     public void deleteFieldsFromListView(){

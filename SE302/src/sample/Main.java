@@ -11,6 +11,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        DatabaseOperations db = new DatabaseOperations();
+        db.createNewDatabase();
         Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
         primaryStage.setTitle("Collection App");
         primaryStage.setScene(new Scene(root, 1024, 768));

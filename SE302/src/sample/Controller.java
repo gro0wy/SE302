@@ -8,6 +8,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.BorderPane;
+
 import java.io.IOException;
 import java.util.Optional;
 
@@ -15,7 +16,7 @@ import java.util.Optional;
 public class Controller {
 
     public static ObservableList<String> observableCollectionList = FXCollections.observableArrayList(); //Collectionların listede tutulması için
-
+   public DatabaseOperations databaseOperations = new DatabaseOperations();
     @FXML
     private BorderPane mainPanel;
     @FXML
@@ -23,11 +24,10 @@ public class Controller {
 
     @FXML
     public void initialize(){
-        collectionListView.setItems(observableCollectionList);
+        collectionListView.setItems(databaseOperations.takeAllTableName());
     }
     @FXML
     public void showAddCollectionDialog() {
-        System.out.println("Collection eklemeye ait Dialog Pane ayarlanacak");
         Dialog<ButtonType> dialog = new Dialog<>();
         dialog.initOwner(mainPanel.getScene().getWindow());
         dialog.setTitle("Add new Collection");
@@ -58,13 +58,11 @@ public class Controller {
 
                 System.out.println(CollectionDialog.collectionFieldName);
                 observableCollectionList.add(CollectionDialog.collectionFieldName);
-
             /*
             callCreationMethod(CollectionDialog.collectionFieldName, CollectionDialog.observableFieldList);
-
             Bu methodla databasede create yapılacak, içinde tuttuğumuz observableFieldList bizim tabledaki columnlarımız oluyor.
             */
-
+                databaseOperations.createTable(CollectionDialog.collectionFieldName,CollectionDialog.observableFieldList);
                 System.out.println("COLLECTION NAME: " + CollectionDialog.collectionFieldName);
                 System.out.println("FIELDS OF THE COLLECTION: ");
                 for (int i = 0; i < CollectionDialog.observableFieldList.size(); i++) {
