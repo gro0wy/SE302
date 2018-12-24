@@ -46,6 +46,7 @@
                     <Button mnemonicParsing="false" onAction="#deleteFieldsFromListView" text="Delete Field" />
                 </children>
             </HBox>
+            <Button text="Add Collection" fx:id="addCollection" GridPane.columnIndex="1" GridPane.rowIndex="5" onAction="#addCollection"/>
             <columnConstraints>
                 <ColumnConstraints />
                 <ColumnConstraints />

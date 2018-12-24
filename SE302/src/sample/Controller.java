@@ -16,7 +16,7 @@ import java.util.Optional;
 public class Controller {
 
     public static ObservableList<String> observableCollectionList = FXCollections.observableArrayList(); //Collectionların listede tutulması için
-   public DatabaseOperations databaseOperations = new DatabaseOperations();
+    public DatabaseOperations databaseOperations = new DatabaseOperations();
     @FXML
     private BorderPane mainPanel;
     @FXML
@@ -24,7 +24,8 @@ public class Controller {
 
     @FXML
     public void initialize(){
-        collectionListView.setItems(databaseOperations.takeAllTableName());
+        observableCollectionList.setAll(databaseOperations.takeAllTableName());
+        collectionListView.setItems(observableCollectionList);
     }
     @FXML
     public void showAddCollectionDialog() {
@@ -46,30 +47,6 @@ public class Controller {
 
         Optional<ButtonType> result = dialog.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
-
-            if(CollectionDialog.collectionFieldName == null || CollectionDialog.observableFieldList.size() == 0){
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("ERROR");
-                alert.setHeaderText("All fields must be filled");
-                alert.setContentText("Collection name cannot be empty or at least one field needed!");
-                alert.showAndWait();
-
-            }else {
-
-                System.out.println(CollectionDialog.collectionFieldName);
-                observableCollectionList.add(CollectionDialog.collectionFieldName);
-            /*
-            callCreationMethod(CollectionDialog.collectionFieldName, CollectionDialog.observableFieldList);
-            Bu methodla databasede create yapılacak, içinde tuttuğumuz observableFieldList bizim tabledaki columnlarımız oluyor.
-            */
-                databaseOperations.createTable(CollectionDialog.collectionFieldName,CollectionDialog.observableFieldList);
-                System.out.println("COLLECTION NAME: " + CollectionDialog.collectionFieldName);
-                System.out.println("FIELDS OF THE COLLECTION: ");
-                for (int i = 0; i < CollectionDialog.observableFieldList.size(); i++) {
-                    System.out.println(CollectionDialog.observableFieldList.get(i));
-
-                }
-            }
 
         } else {
             System.out.println("Cancel Pressed");

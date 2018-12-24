@@ -6,7 +6,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+
+import java.util.Locale;
 import java.util.Optional;
+
+import static sample.Controller.observableCollectionList;
 
 
 public class CollectionDialog {
@@ -22,7 +26,7 @@ public class CollectionDialog {
     public static String collectionFieldName;
 
     public static ObservableList<String> observableFieldList = FXCollections.observableArrayList(); //Fieldların listede tutulması
-
+    public DatabaseOperations databaseOperations = new DatabaseOperations();
 
 
     @FXML
@@ -97,6 +101,39 @@ public class CollectionDialog {
                 System.out.println("User pressed CANCEL");
             }
 
+        }
+    }
+
+    @FXML
+    public void addCollection(){
+
+        if(CollectionDialog.collectionFieldName.trim().isEmpty() || CollectionDialog.collectionFieldName == null || CollectionDialog.observableFieldList.size() == 0){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("ERROR");
+            alert.setHeaderText("All fields must be filled");
+            alert.setContentText("Collection name cannot be empty or at least one field needed!");
+            alert.showAndWait();
+
+        }else {
+
+            System.out.println(CollectionDialog.collectionFieldName);
+            observableCollectionList.add(collectionField.getText().trim());
+            System.out.println("Olması gereken:"+collectionField.getText().toUpperCase().trim());
+            /*
+            callCreationMethod(CollectionDialog.collectionFieldName, CollectionDialog.observableFieldList);
+
+            Bu methodla databasede create yapılacak, içinde tuttuğumuz observableFieldList bizim tabledaki columnlarımız oluyor.
+            */
+            databaseOperations.createTable(CollectionDialog.collectionFieldName,CollectionDialog.observableFieldList);
+
+            System.out.println("COLLECTION NAME: " + CollectionDialog.collectionFieldName);
+            System.out.println("FIELDS OF THE COLLECTION: " );
+            for (int i = 0; i < CollectionDialog.observableFieldList.size(); i++) {
+                System.out.println(CollectionDialog.observableFieldList.get(i));
+
+            }
+            CollectionDialog.observableFieldList.clear();
+            collectionField.clear();
         }
     }
 }
