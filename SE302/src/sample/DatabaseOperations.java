@@ -7,7 +7,7 @@ import java.sql.*;
 
 
 public class DatabaseOperations {
-    private String url = "jdbc:sqlite:C:/sqlite3/db/CollectionApp.db";
+    private String url = "jdbc:sqlite:CollectionApp.db";
 
     public void createNewDatabase() {
         /*
@@ -24,7 +24,7 @@ public class DatabaseOperations {
     }
 
     public void createTable(String tableName, ObservableList<String> fields) {
-        String url = "jdbc:sqlite:C://sqlite3/db/CollectionApp.db";
+        String url = "jdbc:sqlite:CollectionApp.db";
         String fieldName = null;
         String fieldType = null;
         for (int j = 0; j < fields.size(); j++) {
