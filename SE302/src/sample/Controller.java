@@ -6,8 +6,10 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -107,7 +109,8 @@ public class Controller {
             alert.setTitle("Warning Dialog");
             alert.setHeaderText("Select a collection!");
             alert.setContentText("Something went wrong");
-
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image(this.getClass().getResource("/icons/warning.png").toString()));
             alert.showAndWait();
         }else{
 
@@ -152,7 +155,6 @@ public class Controller {
                         for (int i = 0; i < sample.size(); i++) {
                             userInputs.add(textFields[i].getText());
 
-
                         }
 
                         // insert sql methodu çağırılacak ve userInputs List parametre olarak gönderilecek. Kolon sırasına göre inputlar insert edilecek.
@@ -171,6 +173,8 @@ public class Controller {
                 alert.setTitle("Warning Dialog");
                 alert.setHeaderText("Look, a Warning Dialog");
                 alert.setContentText("Something went wrong!");
+                Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                stage.getIcons().add(new Image(this.getClass().getResource("/icons/warning.png").toString()));
 
                 alert.showAndWait();
 
