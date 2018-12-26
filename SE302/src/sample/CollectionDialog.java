@@ -6,6 +6,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 
 import java.util.Locale;
 import java.util.Optional;
@@ -51,6 +53,8 @@ public class CollectionDialog {
             alert.setTitle("ERROR");
             alert.setHeaderText("Field Error");
             alert.setContentText("Field cannot be empty");
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image(this.getClass().getResource("/icons/warning.png").toString()));
             alert.showAndWait();
         }
         else{
@@ -59,6 +63,8 @@ public class CollectionDialog {
             alert.setTitle("ERROR");
             alert.setHeaderText("Field Error");
             alert.setContentText("Field already exist. Try again");
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image(this.getClass().getResource("/icons/warning.png").toString()));
             alert.showAndWait();
         } else {
             myListView.getItems().add(comboBox.getSelectionModel().getSelectedItem().toUpperCase() + "-" + collectionAttField.getText().toUpperCase());
@@ -85,6 +91,8 @@ public class CollectionDialog {
             alert.setTitle("ERROR");
             alert.setHeaderText("Delete Error");
             alert.setContentText("Choose a field to delete");
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image(this.getClass().getResource("/icons/warning.png").toString()));
             alert.showAndWait();
 
         } else {
@@ -92,6 +100,8 @@ public class CollectionDialog {
             alert.setTitle("Confirmation");
             alert.setHeaderText("Are you sure?");
             alert.setContentText("Delete " + myListView.getSelectionModel().getSelectedItem());
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image(this.getClass().getResource("/icons/confirm.png").toString()));
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK){
                 observableFieldList.remove(myListView.getSelectionModel().getSelectedItem());
@@ -106,11 +116,13 @@ public class CollectionDialog {
     @FXML
     public void addCollection(){
 
-        if(CollectionDialog.collectionFieldName.trim().isEmpty() || CollectionDialog.collectionFieldName == null || CollectionDialog.observableFieldList.size() == 0){
+        if(CollectionDialog.collectionFieldName == null || CollectionDialog.observableFieldList.size() == 0){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("ERROR");
             alert.setHeaderText("All fields must be filled");
             alert.setContentText("Collection name cannot be empty or at least one field needed!");
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image(this.getClass().getResource("/icons/warning.png").toString()));
             alert.showAndWait();
 
         }else {
