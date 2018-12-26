@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1406fc8-61dc-4256-9a40-c95fbf2cab35" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/sample/EditCollectionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/editCollection.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CollectionApp.db" beforeDir="false" afterPath="$PROJECT_DIR$/CollectionApp.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SE302/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE302/sample/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ItemDialogController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/main.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,13 +26,13 @@
           <entry key="dummy" value="24" />
           <entry key="fxml" value="166" />
           <entry key="java" value="2923" />
-          <entry key="txt" value="370" />
+          <entry key="txt" value="461" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="2923" />
-          <entry key="PLAIN_TEXT" value="394" />
+          <entry key="PLAIN_TEXT" value="485" />
           <entry key="XML" value="166" />
         </counts>
       </usages-collector>
@@ -130,8 +123,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/EditCollectionController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="96" column="20" lean-forward="true" selection-start-line="96" selection-start-column="20" selection-end-line="96" selection-end-column="20" />
+            <state relative-caret-position="881">
+              <caret line="96" lean-forward="true" selection-start-line="96" selection-end-line="96" />
             </state>
           </provider>
         </entry>
@@ -227,7 +220,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545852758044" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545852826481" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/SE302/SE302" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -432,7 +425,14 @@
       <option name="project" value="LOCAL" />
       <updated>1545765398745</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Edit collection functionality added and GUI reorganized according to edit dialogpane">
+      <created>1545852819484</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1545852819484</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -484,7 +484,8 @@
     <MESSAGE value="Multiple collection creation functionality added. Refresh of the main collection list function updated. Add collection button created" />
     <MESSAGE value="showAddItemDialog organized according to database requests" />
     <MESSAGE value="icons about warnings and confirmation is loaded and added appropriate places in the code. Also, main logo of the program added" />
-    <option name="LAST_COMMIT_MESSAGE" value="icons about warnings and confirmation is loaded and added appropriate places in the code. Also, main logo of the program added" />
+    <MESSAGE value="Edit collection functionality added and GUI reorganized according to edit dialogpane" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit collection functionality added and GUI reorganized according to edit dialogpane" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/sql/DatabaseMetaData.java">
@@ -565,8 +566,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/EditCollectionController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="96" column="20" lean-forward="true" selection-start-line="96" selection-start-column="20" selection-end-line="96" selection-end-column="20" />
+        <state relative-caret-position="881">
+          <caret line="96" lean-forward="true" selection-start-line="96" selection-end-line="96" />
         </state>
       </provider>
     </entry>

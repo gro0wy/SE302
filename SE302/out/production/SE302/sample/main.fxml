@@ -20,7 +20,7 @@
                     <MenuItem onAction="#showEditCollectionDialog" text="Edit Collection" />
                 </items>
                 <items>
-                    <MenuItem text="Delete Collection" />
+                    <MenuItem text="Delete Collection" onAction="#deleteCollection"/>
                 </items>
             </Menu>
             <menus>
