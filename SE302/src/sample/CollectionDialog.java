@@ -92,7 +92,6 @@ public class CollectionDialog {
             alert.setTitle("Confirmation");
             alert.setHeaderText("Are you sure?");
             alert.setContentText("Delete " + myListView.getSelectionModel().getSelectedItem());
-
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK){
                 observableFieldList.remove(myListView.getSelectionModel().getSelectedItem());

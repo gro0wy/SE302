@@ -1,4 +1,8 @@
 package sample;
+
+import com.sun.org.apache.xpath.internal.operations.Variable;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -12,7 +16,7 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Optional;
-
+import java.util.List;
 
 public class Controller {
 
@@ -22,12 +26,14 @@ public class Controller {
     private BorderPane mainPanel;
     @FXML
     private ListView<String> collectionListView;
+    public ItemOperations itemOperations = new ItemOperations();
 
     @FXML
-    public void initialize(){
+    public void initialize() {
         observableCollectionList.setAll(databaseOperations.takeAllTableName());
         collectionListView.setItems(observableCollectionList);
     }
+
     @FXML
     public void showAddCollectionDialog() {
         Dialog<ButtonType> dialog = new Dialog<>();
@@ -62,7 +68,6 @@ public class Controller {
         Seçilen koleksiyonun üzerinde edit yapılacak (ekstra bir koleksiyon oluşturmadan).
         Aşağıdaki kodlar showAddCollection methoduyla aynı bunu edite göre düzenleyin!
          */
-
         System.out.println("Collection eklemeye ait Dialog Pane ayarlanacak");
         Dialog<ButtonType> dialog = new Dialog<>();
         dialog.initOwner(mainPanel.getScene().getWindow());
@@ -100,16 +105,15 @@ public class Controller {
         Item eklemeye ait dialog pane açılacak textfielda yazılan değerler alınacak
         Buralar tamamen databaseden yapılacak
          */
-
         System.out.println("Item eklemeye ait Dialog Pane ayarlanacak");
-        if(collectionListView.getSelectionModel().getSelectedItem() == null){
+        if (collectionListView.getSelectionModel().getSelectedItem() == null) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning Dialog");
             alert.setHeaderText("Select a collection!");
             alert.setContentText("Something went wrong");
 
             alert.showAndWait();
-        }else{
+        } else {
 
 
             Dialog<ButtonType> dialog = new Dialog<>();
@@ -119,7 +123,7 @@ public class Controller {
 
             //Bize burdan liste gelmesi gerekiyor (databaseden seçili collectiona göre) column nameleri mesela (Book'a ait BookName, BookPageNumber, BookAuthor bunların
             //bir listede gelmesi lazım
-            ArrayList<String> sample = new ArrayList<>();
+            ArrayList<String> sample = itemOperations.getColumnNames(collectionListView.getSelectionModel().getSelectedItem());
 /*
             sample.add("Name");
             sample.add("Age");
@@ -129,11 +133,9 @@ public class Controller {
             VBox vBox = new VBox();
             TextField[] textFields = new TextField[sample.size()];
             Label[] labelList = new Label[sample.size()];
-
-            for(int i=0; i<sample.size(); i++){
+            for (int i = 0; i < sample.size(); i++) {
                 labelList[i] = new Label(sample.get(i));
                 textFields[i] = new TextField();
-
                 vBox.getChildren().addAll(labelList[i], textFields[i]);
             }
 
@@ -141,9 +143,8 @@ public class Controller {
             vBox.getChildren().add(addItem);
             vBox.setSpacing(10);
 
-            ArrayList<String> userInputs = new ArrayList<>(); //User inputlarını bir yerde tutuyoruz
-            //Userdan inputları alıyoruz
-
+            ArrayList<String> userInputs = new ArrayList<>(); //User inputlarını bir yerde tutuyoruz;
+            // Userdan inputları alıyoruz
 
             try {
                 addItem.setOnAction(new EventHandler<ActionEvent>() {
@@ -151,10 +152,8 @@ public class Controller {
                     public void handle(ActionEvent event) {
                         for (int i = 0; i < sample.size(); i++) {
                             userInputs.add(textFields[i].getText());
-
-
                         }
-
+                        itemOperations.insertItem(collectionListView.getSelectionModel().getSelectedItem(),userInputs);
                         // insert sql methodu çağırılacak ve userInputs List parametre olarak gönderilecek. Kolon sırasına göre inputlar insert edilecek.
                         //methodsql(userInputs); //bu sınıf yazılırken içinde try catch kullanılmayacak hata bu sınıfı çağıran sınafa throw edilecek
 
@@ -162,7 +161,6 @@ public class Controller {
                                 System.out.println(sample.get(j)+" = " +userInputs.get(j));
                             }*/
                     }
-
                 });
 
             } catch (Exception e) {
@@ -189,11 +187,11 @@ public class Controller {
 
 
     @FXML
-    public void showEditItemDialog () {
+    public void showEditItemDialog() {
         System.out.println("Edit aşaması");
         /*
         Seçilen iteme ait editleme (Database tarafı)
          */
-        }
     }
+}
 
