@@ -117,6 +117,25 @@ public class DatabaseOperations {
         }
         return tableNames;
     }
+    public void deleteTable(String tableName) {
+        Connection conn = conn();
+        String sql = "DROP TABLE IF EXISTS '" + tableName + "'";
+        try (Statement stmt = conn.createStatement()) {
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (conn != null) {
+                try {
+                    conn.commit();
+                    conn.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+
+            }
+        }
+    }
     private  Connection conn() {
         Connection conn = null;
         try {

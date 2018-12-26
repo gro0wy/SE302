@@ -194,5 +194,11 @@ public class Controller {
         Seçilen iteme ait editleme (Database tarafı)
          */
         }
+    @FXML
+    public void deleteCollection(){
+        databaseOperations.deleteTable(collectionListView.getSelectionModel().getSelectedItem());
+        initialize();
+    }
+
     }
 
