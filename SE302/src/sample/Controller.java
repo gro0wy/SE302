@@ -1,4 +1,6 @@
 package sample;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -7,7 +9,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -19,25 +20,34 @@ import java.util.Optional;
 
 public class Controller {
 
-    public static String editingItem;
-
-    public static ObservableList<String> observableCollectionList = FXCollections.observableArrayList(); //Collectionların listede tutulması için
-
-    private DatabaseOperations databaseOperations = new DatabaseOperations();
-    private ItemOperations itemOperations = new ItemOperations();
-
     @FXML
     private BorderPane mainPanel;
     @FXML
     public ListView<String> collectionListView;
 
-    @FXML
-    ListView<String> editListView;
+
+    public TableView<ObservableList> tableView = new TableView<>();
+
+    public static String editingItem;
+    public static ObservableList<String> observableCollectionList = FXCollections.observableArrayList(); //Collectionların listede tutulması için
+    private DatabaseOperations databaseOperations = new DatabaseOperations();
+    private ItemOperations itemOperations = new ItemOperations();
 
     @FXML
     public void initialize(){
+
         observableCollectionList.setAll(databaseOperations.takeAllTableName());
+
+        mainPanel.setCenter(tableView);
         collectionListView.setItems(observableCollectionList);
+
+        collectionListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                //linkteki methodu buraya uygula
+            }
+        });
     }
 
     @FXML
@@ -78,21 +88,9 @@ public class Controller {
     @FXML
     public void showEditCollectionDialog() {
 
-        if(collectionListView.getSelectionModel().getSelectedItem() != null){
+        if (collectionListView.getSelectionModel().getSelectedItem() != null) {
 
             editingItem = collectionListView.getSelectionModel().getSelectedItem();
-        }
-
-
-
-        /*
-        Seçilen koleksiyonun üzerinde edit yapılacak (ekstra bir koleksiyon oluşturmadan).
-        Aşağıdaki kodlar showAddCollection methoduyla aynı bunu edite göre düzenleyin!
-         */
-
-        ItemOperations selectedCollection = new ItemOperations();
-        String collectionName = collectionListView.getSelectionModel().getSelectedItem();
-        if (collectionName != null) {
             Dialog<ButtonType> dialog = new Dialog<>();
             dialog.initOwner(mainPanel.getScene().getWindow());
             dialog.setTitle("Edit Collection");
@@ -109,15 +107,18 @@ public class Controller {
             }
             dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
             dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
-
             Optional<ButtonType> result = dialog.showAndWait();
+
             if (result.isPresent() && result.get() == ButtonType.OK) {
 
 
             } else {
                 System.out.println("Cancel Pressed");
             }
-        }else{ Alert alert = new Alert(Alert.AlertType.WARNING);
+
+        } else {
+
+            Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning Dialog");
             alert.setHeaderText("Select a collection!");
             alert.setContentText("Something went wrong");
@@ -125,8 +126,9 @@ public class Controller {
             stage.getIcons().add(new Image(this.getClass().getResource("/icons/warning.png").toString()));
             alert.showAndWait();
 
-
         }
+
+
     }
     @FXML
     public void showAddItemDialog() {

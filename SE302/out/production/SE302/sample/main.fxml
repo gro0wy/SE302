@@ -32,37 +32,14 @@
                         <MenuItem onAction="#showEditItemDialog" text="Edit Item" />
                     </items>
                     <items>
-                        <MenuItem text="Delete Item" />
+                        <MenuItem text="Delete Item" onAction="#deleteCollection" />
                     </items>
                 </Menu>
             </menus>
         </MenuBar>
     </top>
     <center>
-        <TableView fx:id="itemTable">
-            <columns>
-                <TableColumn text="First Field">
-                    <cellValueFactory>
-                        <PropertyValueFactory property="firstField" />
-                    </cellValueFactory>
-                </TableColumn>
-                <TableColumn text="Second Field">
-                    <cellValueFactory>
-                        <PropertyValueFactory property="secondField" />
-                    </cellValueFactory>
-                </TableColumn>
-                <TableColumn text="Third Field">
-                    <cellValueFactory>
-                        <PropertyValueFactory property="thirdField" />
-                    </cellValueFactory>
-                </TableColumn>
-                <TableColumn text="Fourth Field">
-                    <cellValueFactory>
-                        <PropertyValueFactory property="fourthField" />
-                    </cellValueFactory>
-                </TableColumn>
-            </columns>
-        </TableView>
+
     </center>
     <left>
     <ListView fx:id="collectionListView">

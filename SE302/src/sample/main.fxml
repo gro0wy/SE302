@@ -39,30 +39,7 @@
         </MenuBar>
     </top>
     <center>
-        <TableView fx:id="itemTable">
-            <columns>
-                <TableColumn text="First Field">
-                    <cellValueFactory>
-                        <PropertyValueFactory property="firstField" />
-                    </cellValueFactory>
-                </TableColumn>
-                <TableColumn text="Second Field">
-                    <cellValueFactory>
-                        <PropertyValueFactory property="secondField" />
-                    </cellValueFactory>
-                </TableColumn>
-                <TableColumn text="Third Field">
-                    <cellValueFactory>
-                        <PropertyValueFactory property="thirdField" />
-                    </cellValueFactory>
-                </TableColumn>
-                <TableColumn text="Fourth Field">
-                    <cellValueFactory>
-                        <PropertyValueFactory property="fourthField" />
-                    </cellValueFactory>
-                </TableColumn>
-            </columns>
-        </TableView>
+
     </center>
     <left>
     <ListView fx:id="collectionListView">
