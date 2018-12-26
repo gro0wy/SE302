@@ -20,8 +20,7 @@ public class Main extends Application {
         Image mainIcon = new Image("/icons/LOGO.png");
         primaryStage.getIcons().add(mainIcon);
         primaryStage.show();
-        TextField textField=new TextField();
-        textField.setText("search");
+
 
     }
 

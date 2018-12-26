@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -18,13 +19,20 @@ import java.util.Optional;
 
 public class Controller {
 
+    public static String editingItem;
+
     public static ObservableList<String> observableCollectionList = FXCollections.observableArrayList(); //Collectionların listede tutulması için
+
     private DatabaseOperations databaseOperations = new DatabaseOperations();
     private ItemOperations itemOperations = new ItemOperations();
+
     @FXML
     private BorderPane mainPanel;
     @FXML
-    private ListView<String> collectionListView;
+    public ListView<String> collectionListView;
+
+    @FXML
+    ListView<String> editListView;
 
     @FXML
     public void initialize(){
@@ -33,6 +41,7 @@ public class Controller {
     }
     @FXML
     public void showAddCollectionDialog() {
+
         Dialog<ButtonType> dialog = new Dialog<>();
         dialog.initOwner(mainPanel.getScene().getWindow());
         dialog.setTitle("Add new Collection");
@@ -52,8 +61,9 @@ public class Controller {
         Optional<ButtonType> result = dialog.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
 
+
         } else {
-            System.out.println("Cancel Pressed");
+            //System.out.println("Cancel Pressed");
         }
 
     }
@@ -61,41 +71,56 @@ public class Controller {
     @FXML
     public void showEditCollectionDialog() {
 
+        if(collectionListView.getSelectionModel().getSelectedItem() != null){
+
+            editingItem = collectionListView.getSelectionModel().getSelectedItem();
+        }
+
+
+
         /*
         Seçilen koleksiyonun üzerinde edit yapılacak (ekstra bir koleksiyon oluşturmadan).
         Aşağıdaki kodlar showAddCollection methoduyla aynı bunu edite göre düzenleyin!
          */
 
-        System.out.println("Collection eklemeye ait Dialog Pane ayarlanacak");
-        Dialog<ButtonType> dialog = new Dialog<>();
-        dialog.initOwner(mainPanel.getScene().getWindow());
-        dialog.setTitle("Edit collection");
-        dialog.setHeaderText(null);
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("collectionDialog.fxml"));
+        ItemOperations selectedCollection = new ItemOperations();
+        String collectionName = collectionListView.getSelectionModel().getSelectedItem();
+        if (collectionName != null) {
+            Dialog<ButtonType> dialog = new Dialog<>();
+            dialog.initOwner(mainPanel.getScene().getWindow());
+            dialog.setTitle("Edit Collection");
+            dialog.setHeaderText(null);
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("editCollection.fxml"));
 
-        try {
-            dialog.getDialogPane().setContent(fxmlLoader.load());
-        } catch (IOException e) {
-            e.printStackTrace();
-            return;
+            try {
+                dialog.getDialogPane().setContent(fxmlLoader.load());
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                return;
+            }
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+
+            Optional<ButtonType> result = dialog.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+
+
+            } else {
+                System.out.println("Cancel Pressed");
+            }
+        }else{ Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning Dialog");
+            alert.setHeaderText("Select a collection!");
+            alert.setContentText("Something went wrong");
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image(this.getClass().getResource("/icons/warning.png").toString()));
+            alert.showAndWait();
+
+
         }
-
-        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
-        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
-
-        Optional<ButtonType> result = dialog.showAndWait();
-        if (result.isPresent() && result.get() == ButtonType.OK) {
-            /*
-            Editlemeye ait kodlar
-             */
-
-        } else {
-            System.out.println("Cancel Pressed");
-        }
-
     }
-
     @FXML
     public void showAddItemDialog() {
         /*
@@ -145,19 +170,34 @@ public class Controller {
             vBox.getChildren().add(addItem);
             vBox.setSpacing(10);
 
-            ArrayList<String> userInputs = new ArrayList<>(); //User inputlarını bir yerde tutuyoruz
+            //User inputlarını bir yerde tutuyoruz
             try {
                 addItem.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent event) {
+                        ArrayList<String> userInputs = new ArrayList<>();
                         for (int i = 0; i < sample.size(); i++) {
                             userInputs.add(textFields[i].getText());
-
                         }
 
                         // insert sql methodu çağırılacak ve userInputs List parametre olarak gönderilecek. Kolon sırasına göre inputlar insert edilecek.
                         //methodsql(userInputs); //bu sınıf yazılırken içinde try catch kullanılmayacak hata bu sınıfı çağıran sınafa throw edilecek
                         itemOperations.insertItem(collectionListView.getSelectionModel().getSelectedItem(),userInputs);
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Item Added");
+                        alert.setHeaderText("Item added to " +collectionListView.getSelectionModel().getSelectedItem());
+                        alert.setContentText("SUCCESSFUL!");
+                        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                        stage.getIcons().add(new Image(this.getClass().getResource("/icons/confirm.png").toString()));
+                        alert.showAndWait();
+
+                        for (int i = 0; i < sample.size(); i++) {
+                          textFields[i].clear();
+
+                        }
+                        /**
+                         * Her item eklediğimizde alanlar sıfırlanacak ve yeni item ekleme olasılığı sağlanacak
+                         **/
                     }
 
                 });
@@ -177,7 +217,6 @@ public class Controller {
 
             itemDialogPane.setContent(vBox);
             dialog.getDialogPane().setContent(itemDialogPane);
-            dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
             dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
             dialog.showAndWait();
 
@@ -186,6 +225,10 @@ public class Controller {
 
     }
 
+    @FXML
+    public void deleteCollection(){
+
+    }
 
     @FXML
     public void showEditItemDialog () {
@@ -194,5 +237,8 @@ public class Controller {
         Seçilen iteme ait editleme (Database tarafı)
          */
         }
+
+
+
     }
 
