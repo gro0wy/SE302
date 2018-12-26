@@ -3,6 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="a1406fc8-61dc-4256-9a40-c95fbf2cab35" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CollectionApp.db" beforeDir="false" afterPath="$PROJECT_DIR$/CollectionApp.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE302/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE302/sample/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE302/sample/itemDialog.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/DatabaseOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/DatabaseOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/EditCollectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/EditCollectionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/itemDialog.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/main.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -11,14 +19,63 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-899751904">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="5" />
+          <entry key="project.open.time.0" value="7" />
+          <entry key="project.opened" value="7" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="dummy" value="24" />
+          <entry key="fxml" value="173" />
+          <entry key="java" value="2930" />
+          <entry key="txt" value="370" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="2930" />
+          <entry key="PLAIN_TEXT" value="394" />
+          <entry key="XML" value="173" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="fxml" value="3" />
+          <entry key="java" value="6" />
+          <entry key="png" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Image" value="1" />
+          <entry key="JAVA" value="6" />
+          <entry key="XML" value="3" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="-1566854461">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/main.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1054">
-              <caret line="62" column="30" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="30" />
+            <state relative-caret-position="201">
+              <caret line="34" column="80" selection-start-line="34" selection-start-column="80" selection-end-line="34" selection-end-column="80" />
             </state>
           </provider>
         </entry>
@@ -26,8 +83,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
+            <state relative-caret-position="374">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
@@ -35,8 +92,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/CollectionDialog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2346">
-              <caret line="150" selection-start-line="150" selection-end-line="150" />
+            <state relative-caret-position="1904">
+              <caret line="112" column="9" selection-start-line="87" selection-start-column="4" selection-end-line="112" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -44,8 +101,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/DatabaseOperations.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="125" column="47" lean-forward="true" selection-start-line="125" selection-start-column="47" selection-end-line="125" selection-end-column="47" />
+            <state relative-caret-position="354">
+              <caret line="133" column="17" lean-forward="true" selection-start-line="133" selection-start-column="17" selection-end-line="133" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -54,8 +111,8 @@
         <entry file="file://$PROJECT_DIR$/src/sample/collectionDialog.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1071">
-              <caret line="63" selection-start-line="63" selection-end-line="63" />
+            <state relative-caret-position="289">
+              <caret line="17" column="48" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -63,8 +120,36 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2618">
-              <caret line="168" column="62" selection-start-line="168" selection-start-column="62" selection-end-line="168" selection-end-column="62" />
+            <state relative-caret-position="289">
+              <caret line="41" selection-start-line="41" selection-end-line="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/editCollection.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="765">
+              <caret line="45" column="100" selection-start-line="45" selection-start-column="100" selection-end-line="45" selection-end-column="100" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/EditCollectionController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="612">
+              <caret line="36" column="88" selection-start-line="36" selection-start-column="88" selection-end-line="36" selection-end-column="88" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/ItemOperations.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -81,6 +166,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>li</find>
+      <find>a</find>
+      <find>get</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -91,10 +178,12 @@
       <list>
         <option value="$PROJECT_DIR$/src/sample/itemDialog.fxml" />
         <option value="$PROJECT_DIR$/src/sample/ItemDialogController.java" />
-        <option value="$PROJECT_DIR$/src/sample/main.fxml" />
         <option value="$PROJECT_DIR$/src/sample/collectionDialog.fxml" />
         <option value="$PROJECT_DIR$/src/sample/CollectionDialog.java" />
         <option value="$PROJECT_DIR$/src/sample/Main.java" />
+        <option value="$PROJECT_DIR$/src/sample/editCollection.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/EditCollectionController.java" />
+        <option value="$PROJECT_DIR$/src/sample/main.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Controller.java" />
         <option value="$PROJECT_DIR$/src/sample/DatabaseOperations.java" />
       </list>
@@ -111,12 +200,43 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="SE302" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SE302" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SE302" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SE302" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SE302" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SE302" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="icons" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SE302" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SE302" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545765051551" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545853788515" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -184,8 +304,6 @@
       <updated>1545238399706</updated>
       <workItem from="1545299402752" duration="104000" />
       <workItem from="1545299509888" duration="3795000" />
-      <workItem from="1545850154336" duration="630000" />
-      <workItem from="1545850835154" duration="509000" />
     </task>
     <task id="LOCAL-00001" summary="Multiple collection creation functionality added. Refresh of the main collection list function updated. Add collection button created">
       <created>1545691475840</created>
@@ -201,24 +319,24 @@
       <option name="project" value="LOCAL" />
       <updated>1545761159350</updated>
     </task>
-    <task id="LOCAL-00003" summary="Delete table method added.">
-      <created>1545850903173</created>
+    <task id="LOCAL-00003" summary="icons about warnings and confirmation is loaded and added appropriate places in the code. Also, main logo of the program added">
+      <created>1545765398744</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1545850903173</updated>
+      <updated>1545765398745</updated>
     </task>
     <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5038000" />
+    <option name="totallyTimeSpent" value="3899000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.19083156" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19509594" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -227,7 +345,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32286024" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2505423" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -235,7 +353,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.2567714" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.2570499" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="right" id="Maven Projects" order="0" />
@@ -285,28 +403,16 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Multiple collection creation functionality added. Refresh of the main collection list function updated. Add collection button created" />
     <MESSAGE value="showAddItemDialog organized according to database requests" />
-    <MESSAGE value="Delete table method added." />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete table method added." />
+    <MESSAGE value="icons about warnings and confirmation is loaded and added appropriate places in the code. Also, main logo of the program added" />
+    <option name="LAST_COMMIT_MESSAGE" value="icons about warnings and confirmation is loaded and added appropriate places in the code. Also, main logo of the program added" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/sample/itemDialog.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/ItemDialogController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/sql/DatabaseMetaData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
@@ -314,47 +420,88 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/main.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
+    <entry file="file://$PROJECT_DIR$/src/icons/confirm.png" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="62" column="30" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="30" />
+        <state relative-caret-position="1474">
+          <caret line="1770" selection-start-line="1770" selection-end-line="1770" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/ItemDialogController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="374">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/CollectionDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2346">
-          <caret line="150" selection-start-line="150" selection-end-line="150" />
+        <state relative-caret-position="1904">
+          <caret line="112" column="9" selection-start-line="87" selection-start-column="4" selection-end-line="112" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/collectionDialog.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="63" selection-start-line="63" selection-end-line="63" />
+        <state relative-caret-position="289">
+          <caret line="17" column="48" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/editCollection.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="45" column="100" selection-start-line="45" selection-start-column="100" selection-end-line="45" selection-end-column="100" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/EditCollectionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" column="88" selection-start-line="36" selection-start-column="88" selection-end-line="36" selection-end-column="88" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/ItemOperations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/itemDialog.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/main.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="34" column="80" selection-start-line="34" selection-start-column="80" selection-end-line="34" selection-end-column="80" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2618">
-          <caret line="168" column="62" selection-start-line="168" selection-start-column="62" selection-end-line="168" selection-end-column="62" />
+        <state relative-caret-position="289">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/DatabaseOperations.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="125" column="47" lean-forward="true" selection-start-line="125" selection-start-column="47" selection-end-line="125" selection-end-column="47" />
+        <state relative-caret-position="354">
+          <caret line="133" column="17" lean-forward="true" selection-start-line="133" selection-start-column="17" selection-end-line="133" selection-end-column="17" />
         </state>
       </provider>
     </entry>

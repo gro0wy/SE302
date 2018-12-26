@@ -94,7 +94,7 @@ public class EditCollectionController {
                 stage.getIcons().add(new Image(this.getClass().getResource("/icons/confirm.png").toString()));
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get() == ButtonType.OK) {
-
+                    
                     editedObservableFieldList.remove(editListView.getSelectionModel().getSelectedItem());
 
                 } else {

@@ -12,10 +12,10 @@ public class DatabaseOperations {
     private ItemOperations itemOperations = new ItemOperations();
 
     public void createNewDatabase() {
-        
-        //Program ilk çalıştığında çalışacak method eğer database yüklü değilse kullanıcın bilgisayarında database oluşturacak.
-        //Eklenecek:Kullanıcının bilgisayarında databasenin bulunacağı dosya yolu oluşturulacak.Program bu dosya yolunda database oluşturacak.
-        
+        /*
+        Program ilk çalıştığında çalışacak method eğer database yüklü değilse kullanıcın bilgisayarında database oluşturacak.
+        Eklenecek:Kullanıcının bilgisayarında databasenin bulunacağı dosya yolu oluşturulacak.Program bu dosya yolunda database oluşturacak.
+        */
         try (Connection conn = DriverManager.getConnection(url)) {
             if (conn != null) {
                 DatabaseMetaData meta = conn.getMetaData();
@@ -52,7 +52,7 @@ public class DatabaseOperations {
                 }
             }
             //Gelen ilk değerlerle birlikte tablo oluşturuluyor ve gelen ilk değeri tabloya ekliyor.
-            if (j == 0) {          
+            if (j == 0) {
                 String sql = "CREATE TABLE IF NOT EXISTS " + tableName + "(\n"
                         + "	id integer PRIMARY KEY AUTOINCREMENT,\n"
                         + fieldName + " TEXT"
@@ -136,6 +136,7 @@ public class DatabaseOperations {
             }
         }
     }
+
     private  Connection conn() {
         Connection conn = null;
         try {
