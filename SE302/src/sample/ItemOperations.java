@@ -78,7 +78,7 @@ public class ItemOperations {
                 String sql = "INSERT INTO " + tableName + "(" + getColumnNames(tableName).get(i) + ") values(\"" + userInputs.get(i) + "\");";
                 try (
                         Statement stmt = connection.createStatement()) {
-                        stmt.execute(sql);
+                    stmt.execute(sql);
                 } catch (SQLException e) {
                     System.out.println(e.getMessage());
                 }

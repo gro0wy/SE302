@@ -19,7 +19,8 @@ import java.util.Optional;
 public class Controller {
 
     public static ObservableList<String> observableCollectionList = FXCollections.observableArrayList(); //Collectionların listede tutulması için
-    public DatabaseOperations databaseOperations = new DatabaseOperations();
+    private DatabaseOperations databaseOperations = new DatabaseOperations();
+    private ItemOperations itemOperations = new ItemOperations();
     @FXML
     private BorderPane mainPanel;
     @FXML
@@ -122,7 +123,7 @@ public class Controller {
 
             //Bize burdan liste gelmesi gerekiyor (databaseden seçili collectiona göre) column nameleri mesela (Book'a ait BookName, BookPageNumber, BookAuthor bunların
             //bir listede gelmesi lazım
-            ArrayList<String> sample = new ArrayList<>();
+            ArrayList<String> sample = itemOperations.getColumnNames(collectionListView.getSelectionModel().getSelectedItem());
 /*
             sample.add("Name");
             sample.add("Age");
@@ -145,9 +146,6 @@ public class Controller {
             vBox.setSpacing(10);
 
             ArrayList<String> userInputs = new ArrayList<>(); //User inputlarını bir yerde tutuyoruz
-            //Userdan inputları alıyoruz
-
-
             try {
                 addItem.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
@@ -159,10 +157,7 @@ public class Controller {
 
                         // insert sql methodu çağırılacak ve userInputs List parametre olarak gönderilecek. Kolon sırasına göre inputlar insert edilecek.
                         //methodsql(userInputs); //bu sınıf yazılırken içinde try catch kullanılmayacak hata bu sınıfı çağıran sınafa throw edilecek
-
-                           /* for (int j =0;j<sample.size();j++){
-                                System.out.println(sample.get(j)+" = " +userInputs.get(j));
-                            }*/
+                        itemOperations.insertItem(collectionListView.getSelectionModel().getSelectedItem(),userInputs);
                     }
 
                 });

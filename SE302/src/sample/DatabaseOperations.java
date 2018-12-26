@@ -62,7 +62,17 @@ public class DatabaseOperations {
                 } catch (SQLException e) {
                     System.out.println(e.getMessage());
                 }
+                finally {
+                    if (conn != null) {
+                        try {
+                            conn.close();
+                        } catch (SQLException e) {
+                            System.out.println(e.getMessage());
+                        }
+                    }
+                }
             } else {
+                conn =conn();
                 //Bundan sonra gelen verilerin tekrar tablo oluşturması gerekmediği için oluşturulan tablonun update edilmesini sağladım.
                 String sql = "ALTER TABLE " + tableName + " Add column " + fieldName + "\t" + "TEXT;";
                 try (
