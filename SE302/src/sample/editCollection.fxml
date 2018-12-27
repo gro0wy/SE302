@@ -32,7 +32,7 @@
                     <Button mnemonicParsing="false"  text="Delete Field" onAction="#editDeleteFields" />
                 </children>
             </HBox>
-            <Button text="Edit Collection" fx:id="editCollection" onAction="#editCollection" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+            <Button text="Edit Collection" disable="true" fx:id="editCollection" onAction="#editCollection" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
             <columnConstraints>
                 <ColumnConstraints />
                 <ColumnConstraints />

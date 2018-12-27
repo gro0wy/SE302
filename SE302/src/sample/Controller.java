@@ -17,7 +17,6 @@ import javafx.util.Callback;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Optional;
 
 
 public class Controller {
@@ -37,12 +36,14 @@ public class Controller {
 
     public static String url = "jdbc:sqlite:CollectionApp.db";
 
-
-
     @FXML
     public void initialize(){
 
-        observableCollectionList.setAll(databaseOperations.takeAllTableName());
+        try {
+            observableCollectionList.setAll(databaseOperations.takeAllTableName());
+        }catch (Exception e){
+            System.out.println("Hata geldi");
+        }
         mainPanel.setCenter(tableView);
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         collectionListView.setItems(observableCollectionList);
@@ -50,8 +51,7 @@ public class Controller {
         collectionListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-
-                TableViewContent(collectionListView.getSelectionModel().getSelectedItem().toString(), tableView, data);
+                    TableViewContent(collectionListView.getSelectionModel().getSelectedItem().toString(), tableView, data);
             }
         });
     }
@@ -60,7 +60,7 @@ public class Controller {
     public void deleteCollection() {
         if (collectionListView.getSelectionModel().getSelectedItem() != null) {
             databaseOperations.deleteTable(collectionListView.getSelectionModel().getSelectedItem());
-            initialize();
+            observableCollectionList.setAll(databaseOperations.takeAllTableName());
         }
         else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -115,16 +115,9 @@ public class Controller {
                 e.printStackTrace();
                 return;
             }
-            dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+
             dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
-            Optional<ButtonType> result = dialog.showAndWait();
-
-            if (result.isPresent() && result.get() == ButtonType.OK) {
-
-
-            } else {
-                System.out.println("Cancel Pressed");
-            }
+            dialog.showAndWait();
 
         } else {
 
@@ -248,10 +241,7 @@ public class Controller {
 
         }
 
-
     }
-
-
 
     @FXML
     public void showEditItemDialog () {
@@ -261,7 +251,7 @@ public class Controller {
          */
         }
 
-    public void TableViewContent (String tableName,TableView table,ObservableList<ObservableList> tableList ) {
+    public void TableViewContent (String tableName, TableView table, ObservableList<ObservableList> tableList ) {
 
         table.getColumns().clear();
         tableList.clear();
