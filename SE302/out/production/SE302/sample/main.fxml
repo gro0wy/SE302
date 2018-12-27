@@ -4,11 +4,9 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.BorderPane?>
 
+<?import javafx.scene.control.TextField?>
 <BorderPane fx:id="mainPanel" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.121" fx:controller="sample.Controller">
     <top>
         <MenuBar>
@@ -46,4 +44,8 @@
 
     </ListView>
     </left>
+    <bottom>
+        <TextField promptText="Search here!" maxWidth="250">
+        </TextField>
+    </bottom>
 </BorderPane>

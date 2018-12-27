@@ -1,4 +1,5 @@
 package sample;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -12,8 +13,9 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
+import javafx.util.Callback;
 import java.io.IOException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -29,20 +31,27 @@ public class Controller {
 
     public static String editingItem;
     public static ObservableList<String> observableCollectionList = FXCollections.observableArrayList(); //Collectionların listede tutulması için
+    public static ObservableList<ObservableList> data = FXCollections.observableArrayList();
     private DatabaseOperations databaseOperations = new DatabaseOperations();
     private ItemOperations itemOperations = new ItemOperations();
+
+    public static String url = "jdbc:sqlite:CollectionApp.db";
+
+
 
     @FXML
     public void initialize(){
 
         observableCollectionList.setAll(databaseOperations.takeAllTableName());
         mainPanel.setCenter(tableView);
+        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         collectionListView.setItems(observableCollectionList);
-        collectionListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 
+        collectionListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                //linkteki methodu buraya uygula
+
+                TableViewContent(collectionListView.getSelectionModel().getSelectedItem().toString(), tableView, data);
             }
         });
     }
@@ -251,5 +260,52 @@ public class Controller {
         Seçilen iteme ait editleme (Database tarafı)
          */
         }
+
+    public void TableViewContent (String tableName,TableView table,ObservableList<ObservableList> tableList ) {
+
+        table.getColumns().clear();
+        tableList.clear();
+        String sql = "Select * From '"+tableName+"' ";
+        try ( Connection conn = DriverManager.getConnection(url);
+              Statement  stmt = conn.createStatement();
+              ResultSet  rs = stmt.executeQuery(sql)) {
+
+
+            for (int i = 1; i < rs.getMetaData().getColumnCount(); i++) {
+                //We are using non property style for making dynamic table
+
+                final int j = i;
+                TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
+                col.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
+                    public ObservableValue<String> call(TableColumn.CellDataFeatures<ObservableList, String> param) {
+
+                        return new SimpleStringProperty(param.getValue().get(j).toString());
+                    }
+                });
+
+                table.getColumns().addAll(col);
+                //    System.out.println("Column [" + i + "] ");
+            }
+            while (rs.next()) {
+                //Iterate Row
+                ObservableList<String> row = FXCollections.observableArrayList();
+                for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
+                    //Iterate Column
+                    row.add(rs.getString(i));
+                }
+                //   System.out.println("Row [1] added " + row);
+                tableList.add(row);
+
+            }
+
+            table.setItems(tableList);
+
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Error on Building Data");
+        }
+
+    }
     }
 
