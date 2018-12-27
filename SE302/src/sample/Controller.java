@@ -25,7 +25,6 @@ public class Controller {
     @FXML
     public ListView<String> collectionListView;
 
-
     public TableView<ObservableList> tableView = new TableView<>();
 
     public static String editingItem;
@@ -37,7 +36,6 @@ public class Controller {
     public void initialize(){
 
         observableCollectionList.setAll(databaseOperations.takeAllTableName());
-
         mainPanel.setCenter(tableView);
         collectionListView.setItems(observableCollectionList);
 
@@ -127,7 +125,7 @@ public class Controller {
             alert.showAndWait();
 
         }
-
+        initialize();
 
     }
     @FXML

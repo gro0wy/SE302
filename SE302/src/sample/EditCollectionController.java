@@ -8,7 +8,9 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+
 import java.util.Optional;
 
 public class EditCollectionController {
@@ -20,11 +22,18 @@ public class EditCollectionController {
     @FXML
     private ListView<String> editListView;
 
+    public static ObservableList<String> observableCollectionList = FXCollections.observableArrayList();
+
     public static ItemOperations fields = new ItemOperations();
 
+    @FXML
+    private BorderPane mainPanel;
+    @FXML
+    public ListView<String> collectionListView;
+
+    public TableView<ObservableList> tableView = new TableView<>();
     public static ObservableList<String> editedObservableFieldList = FXCollections.observableArrayList();
-
-
+    private DatabaseOperations databaseOperations = new DatabaseOperations();
     @FXML
     public static String editedCollectionFieldName;
 
@@ -36,13 +45,13 @@ public class EditCollectionController {
         editListView.setItems(editedObservableFieldList);
         editCollectionField.setText(Controller.editingItem);
 
-            editCollectionField.textProperty().addListener(new ChangeListener<String>() {
-                @Override
-                public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                    editedCollectionFieldName = newValue;
-                }
-            });
-        }
+        editCollectionField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                editedCollectionFieldName = newValue;
+            }
+        });
+    }
 
 
     @FXML
@@ -105,10 +114,8 @@ public class EditCollectionController {
 
     @FXML
     public void editCollection() {
-
         try {
             if ((editCollectionField == null || editedObservableFieldList.isEmpty())) {
-
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("ERROR");
                 alert.setHeaderText("All fields must be filled");
@@ -122,20 +129,20 @@ public class EditCollectionController {
 
             Bu methodla databasede create yapılacak, içinde tuttuğumuz observableFieldList bizim tabledaki columnlarımız oluyor.
             */
-
-
+                if (!editCollectionField.equals(Controller.editingItem)) {
+                    databaseOperations.changeTableName(Controller.editingItem, editCollectionField.getText());
+                }
+                databaseOperations.addNewColumn(editedCollectionFieldName, databaseOperations.newColumns(editedCollectionFieldName, editedObservableFieldList));
                 System.out.println("COLLECTION NAME: " + editedCollectionFieldName);
                 System.out.println("FIELDS OF THE COLLECTION: ");
                 for (int i = 0; i < editedObservableFieldList.size(); i++) {
                     System.out.println(editedObservableFieldList.get(i));
 
                 }
-                //editedObservableFieldList.clear();
-                //editCollectionField.clear();
-
             }
-        } catch (Exception e){
-            System.out.println(e.getMessage());Alert alert = new Alert(Alert.AlertType.WARNING);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("ERROR");
             alert.setHeaderText("Try again");
             alert.setContentText("Something went wrong!");
@@ -145,6 +152,7 @@ public class EditCollectionController {
 
         }
     }
+
 }
 
 

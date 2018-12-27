@@ -8,8 +8,7 @@ import java.util.ArrayList;
 
 
 public class DatabaseOperations {
-    private  String url = "jdbc:sqlite:CollectionApp.db";
-    private ItemOperations itemOperations = new ItemOperations();
+    private String url = "jdbc:sqlite:CollectionApp.db";
 
     public void createNewDatabase() {
         /*
@@ -61,8 +60,7 @@ public class DatabaseOperations {
                     stmt.execute(sql);
                 } catch (SQLException e) {
                     System.out.println(e.getMessage());
-                }
-                finally {
+                } finally {
                     if (conn != null) {
                         try {
                             conn.close();
@@ -72,7 +70,7 @@ public class DatabaseOperations {
                     }
                 }
             } else {
-                conn =conn();
+                conn = conn();
                 //Bundan sonra gelen verilerin tekrar tablo oluşturması gerekmediği için oluşturulan tablonun update edilmesini sağladım.
                 String sql = "ALTER TABLE " + tableName + " Add column " + fieldName + "\t" + "TEXT;";
                 try (
@@ -117,6 +115,7 @@ public class DatabaseOperations {
         }
         return tableNames;
     }
+
     public void deleteTable(String tableName) {
         Connection conn = conn();
         String sql = "DROP TABLE IF EXISTS '" + tableName + "'";
@@ -137,7 +136,71 @@ public class DatabaseOperations {
         }
     }
 
-    private  Connection conn() {
+    public void addNewColumn(String tableName, ArrayList<String> newColumns) {
+        for (int i = 0; i < newColumns.size(); i++) {
+            Connection connection = conn();
+            String sql = "ALTER TABLE " + tableName + " Add column " + newColumns.get(i) + "\t" + "TEXT;";
+            try {
+                Statement stmt = connection.createStatement();
+                stmt.execute(sql);
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            } finally {
+                if (connection != null) {
+                    try {
+                        connection.close();
+                    } catch (SQLException e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+            }
+        }
+    }
+
+    public ArrayList<String> newColumns(String tableName, ObservableList<String> fields) {
+        Connection connection = conn();
+        ArrayList<String> newColumns = new ArrayList<>();
+        try {
+            DatabaseMetaData databaseMetaData = connection.getMetaData();
+            for (int i = 0; i < fields.size(); i++) {
+                ResultSet resultSet = databaseMetaData.getColumns(null, null, tableName, fields.get(i));
+                if (!resultSet.next()) {
+                    newColumns.add(fields.get(i));
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        return newColumns;
+    }
+    public void changeTableName(String oldName,String newName){
+        Connection connection = conn();
+        String sql = "ALTER TABLE " + oldName+ " RENAME TO " + newName + ";";
+
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.execute(sql);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+    }
+    private Connection conn() {
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);
@@ -148,6 +211,5 @@ public class DatabaseOperations {
         }
         return conn;
     }
-
 }
 
