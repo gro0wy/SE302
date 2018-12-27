@@ -38,7 +38,6 @@ public class Controller {
         observableCollectionList.setAll(databaseOperations.takeAllTableName());
         mainPanel.setCenter(tableView);
         collectionListView.setItems(observableCollectionList);
-
         collectionListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 
             @Override
@@ -49,9 +48,20 @@ public class Controller {
     }
 
     @FXML
-    public void deleteCollection(){
-        databaseOperations.deleteTable(collectionListView.getSelectionModel().getSelectedItem());
-        initialize();
+    public void deleteCollection() {
+        if (collectionListView.getSelectionModel().getSelectedItem() != null) {
+            databaseOperations.deleteTable(collectionListView.getSelectionModel().getSelectedItem());
+            initialize();
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("ERROR");
+            alert.setHeaderText("Please select an item to delete!");
+            alert.setContentText("Something went wrong. Try again!");
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image(this.getClass().getResource("/icons/warning.png").toString()));
+            alert.showAndWait();
+        }
     }
 
     @FXML
@@ -70,16 +80,9 @@ public class Controller {
             return;
         }
 
-        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
-
-        Optional<ButtonType> result = dialog.showAndWait();
-        if (result.isPresent() && result.get() == ButtonType.OK) {
-
-
-        } else {
-            //System.out.println("Cancel Pressed");
-        }
+        dialog.showAndWait();
+        initialize();
 
     }
 
@@ -151,8 +154,7 @@ public class Controller {
             Dialog<ButtonType> dialog = new Dialog<>();
             dialog.initOwner(mainPanel.getScene().getWindow());
             DialogPane itemDialogPane = new DialogPane();
-            dialog.setTitle("Add item");
-
+            dialog.setTitle("Add item -> " +collectionListView.getSelectionModel().getSelectedItem());
             //Bize burdan liste gelmesi gerekiyor (databaseden seçili collectiona göre) column nameleri mesela (Book'a ait BookName, BookPageNumber, BookAuthor bunların
             //bir listede gelmesi lazım
             ArrayList<String> sample = itemOperations.getColumnNames(collectionListView.getSelectionModel().getSelectedItem());
@@ -186,25 +188,33 @@ public class Controller {
                         for (int i = 0; i < sample.size(); i++) {
                             userInputs.add(textFields[i].getText());
                         }
+                        if (userInputs.contains("")) {
+                            Alert alert = new Alert(Alert.AlertType.WARNING);
+                            alert.setTitle("Warning Dialog");
+                            alert.setHeaderText("Look, a Warning Dialog");
+                            alert.setContentText("Something went wrong!");
+                            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                            stage.getIcons().add(new Image(this.getClass().getResource("/icons/warning.png").toString()));
 
-                        // insert sql methodu çağırılacak ve userInputs List parametre olarak gönderilecek. Kolon sırasına göre inputlar insert edilecek.
-                        //methodsql(userInputs); //bu sınıf yazılırken içinde try catch kullanılmayacak hata bu sınıfı çağıran sınafa throw edilecek
-                        itemOperations.insertItem(collectionListView.getSelectionModel().getSelectedItem(),userInputs);
-                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setTitle("Item Added");
-                        alert.setHeaderText("Item added to " +collectionListView.getSelectionModel().getSelectedItem());
-                        alert.setContentText("SUCCESSFUL!");
-                        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-                        stage.getIcons().add(new Image(this.getClass().getResource("/icons/confirm.png").toString()));
-                        alert.showAndWait();
-
-                        for (int i = 0; i < sample.size(); i++) {
-                          textFields[i].clear();
-
+                            alert.showAndWait();
                         }
-                        /**
-                         * Her item eklediğimizde alanlar sıfırlanacak ve yeni item ekleme olasılığı sağlanacak
-                         **/
+                        else {
+                            // insert sql methodu çağırılacak ve userInputs List parametre olarak gönderilecek. Kolon sırasına göre inputlar insert edilecek.
+                            //methodsql(userInputs); //bu sınıf yazılırken içinde try catch kullanılmayacak hata bu sınıfı çağıran sınafa throw edilecek
+                            itemOperations.insertItem(collectionListView.getSelectionModel().getSelectedItem(),userInputs);
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setTitle("Item Added");
+                            alert.setHeaderText("Item added to " +collectionListView.getSelectionModel().getSelectedItem());
+                            alert.setContentText("SUCCESSFUL!");
+                            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                            stage.getIcons().add(new Image(this.getClass().getResource("/icons/confirm.png").toString()));
+                            alert.showAndWait();
+
+                            for (int i = 0; i < sample.size(); i++) {
+                                textFields[i].clear();
+
+                            }
+                        }
                     }
 
                 });
@@ -241,8 +251,5 @@ public class Controller {
         Seçilen iteme ait editleme (Database tarafı)
          */
         }
-
-
-
     }
 
